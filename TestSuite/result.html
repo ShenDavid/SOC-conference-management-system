@@ -1,0 +1,1654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+.failed {color: red; background-color: #ffcccc;}
+.passed {color: green; background-color: #ccffcc;}
+.done {color: #404040; background-color: #ccffcc;}
+.comment {color: #404040; background-color: #d0d0d0;}
+body, table { font-family: Verdana, Arial, sans-serif; font-size: 12pt; }
+table { border-collapse: collapse; border: 1px solid #ccc; }
+th, td { padding-left: 0.3em; padding-right: 0.3em; border: 1px solid #ccc; }
+#suiteSummaryTable thead { font-size: 14pt; font-weight: 800; }
+.test_case thead { font-size: 14pt; font-weight: 400; }
+</style>
+</head>
+<body>
+<table id="suiteSummaryTable" class="selenium">
+<thead><tr class="passed"><td>Test Suite: ConferenceManagement</td></tr></thead>
+<tbody>
+<tr><td>Test cases: 31 total / <span class="passed">31</span> passed / <span class="failed">0</span> failed</td></tr>
+<tr><td>Commands: 250 total / <span class="passed">250</span> passed / <span class="failed">0</span> failed / <span class="skipped">0</span> skipped</td></tr>
+</tbody></table><br>
+<table id="suiteTable" class="selenium">
+<thead><tr><td>Index of test cases</td></tr></thead>
+<tbody>
+<tr class="done"><td><a href="#test0">Login</a></td></tr>
+<tr class="done"><td><a href="#test1">SubmitPaper</a></td></tr>
+<tr class="passed"><td><a href="#test2">SearchStatusConference</a></td></tr>
+<tr class="passed"><td><a href="#test3">SearchKeywordConference</a></td></tr>
+<tr class="done"><td><a href="#test4">UpdateReview</a></td></tr>
+<tr class="passed"><td><a href="#test5">EditProfile</a></td></tr>
+<tr class="done"><td><a href="#test6">SeeReview</a></td></tr>
+<tr class="done"><td><a href="#test7">PrintReview</a></td></tr>
+<tr class="passed"><td><a href="#test8">PaperInConference</a></td></tr>
+<tr class="passed"><td><a href="#test9">ReviewOfConference</a></td></tr>
+<tr class="passed"><td><a href="#test10">AdminOfConference</a></td></tr>
+<tr class="passed"><td><a href="#test11">AddPCMember</a></td></tr>
+<tr class="done"><td><a href="#test12">ModifyPCmember</a></td></tr>
+<tr class="done"><td><a href="#test13">DeletePCmemeber</a></td></tr>
+<tr class="passed"><td><a href="#test14">AddTopic</a></td></tr>
+<tr class="done"><td><a href="#test15">DeleteTopic</a></td></tr>
+<tr class="passed"><td><a href="#test16">AddTestQuestion</a></td></tr>
+<tr class="done"><td><a href="#test17">DeleteTestQuestion</a></td></tr>
+<tr class="passed"><td><a href="#test18">AddStatusCode</a></td></tr>
+<tr class="done"><td><a href="#test19">DeleteStatusCode</a></td></tr>
+<tr class="passed"><td><a href="#test20">CloseSubmission</a></td></tr>
+<tr class="passed"><td><a href="#test21">OpenSubmission</a></td></tr>
+<tr class="passed"><td><a href="#test22">ViewEmailTemplate</a></td></tr>
+<tr class="passed"><td><a href="#test23">ModifyEmailTemplate</a></td></tr>
+<tr class="passed"><td><a href="#test24">SubmitPaperOnBehalf</a></td></tr>
+<tr class="passed"><td><a href="#test25">PaperOfConference</a></td></tr>
+<tr class="done"><td><a href="#test26">AssignReviewer</a></td></tr>
+<tr class="passed"><td><a href="#test27">ListAuthors</a></td></tr>
+<tr class="passed"><td><a href="#test28">ReviewState</a></td></tr>
+<tr class="passed"><td><a href="#test29">SearchAcceptPaper</a></td></tr>
+<tr class="passed"><td><a href="#test30">SearchPaperId</a></td></tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test0"></a><table class="test_case"><thead><tr><td colspan="4">Test case: Login</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test1"></a><table class="test_case"><thead><tr><td colspan="4">Test case: SubmitPaper</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Paper</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>select</td>
+	<td>id=conference</td>
+	<td>label=IEEE 2017 ICWS Area 1</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=title</td>
+	<td>test12345</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test2"></a><table class="test_case"><thead><tr><td colspan="4">Test case: SearchStatusConference</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>select</td>
+	<td>id=searchstatus</td>
+	<td>label=Active</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>verifyElementPresent</td>
+	<td>//div[@id='main']/form[2]/fieldset/table/tbody/tr/td[3]</td>
+	<td>Active</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test3"></a><table class="test_case"><thead><tr><td colspan="4">Test case: SearchKeywordConference</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=keyword</td>
+	<td>2017</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>verifyElementPresent</td>
+	<td>css=td</td>
+	<td>IEEE 2017 ICWS Area 1</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test4"></a><table class="test_case"><thead><tr><td colspan="4">Test case: UpdateReview</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Review</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Modify</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Update review')])[17]</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>select</td>
+	<td>xpath=(//select[@name='test'])[2]</td>
+	<td>label=Accept</td>
+	<td>Element xpath=(//select[@name='test'])[2] not found</td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test5"></a><table class="test_case"><thead><tr><td colspan="4">Test case: EditProfile</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Profile</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=affiliation</td>
+	<td>CMU</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>select</td>
+	<td>id=title</td>
+	<td>label=Mr.</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>verifyElementPresent</td>
+	<td>id=affiliation</td>
+	<td>CMU</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test6"></a><table class="test_case"><thead><tr><td colspan="4">Test case: SeeReview</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Review</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Modify</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'See review')])[17]</td>
+	<td></td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test7"></a><table class="test_case"><thead><tr><td colspan="4">Test case: PrintReview</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Review</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Modify</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Print review')])[17]</td>
+	<td></td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test8"></a><table class="test_case"><thead><tr><td colspan="4">Test case: PaperInConference</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Paper')])[2]</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>verifyElementPresent</td>
+	<td>id=conference</td>
+	<td>IEEE 2017 ICWS Area 1</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test9"></a><table class="test_case"><thead><tr><td colspan="4">Test case: ReviewOfConference</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Review')])[2]</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>verifyElementPresent</td>
+	<td>id=conference</td>
+	<td>IEEE 2017 ICWS Area 1</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test10"></a><table class="test_case"><thead><tr><td colspan="4">Test case: AdminOfConference</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>verifyElementPresent</td>
+	<td>css=h3</td>
+	<td>Administrative Tasks</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test11"></a><table class="test_case"><thead><tr><td colspan="4">Test case: AddPCMember</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Program Committee</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=email</td>
+	<td>jasonzhang@hotmail.com</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=lastname</td>
+	<td>test</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=firstname</td>
+	<td>test</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=ifChair_Y</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=ifReviewer_Y</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>verifyElementPresent</td>
+	<td>//div[@id='main']/table/tbody/tr[3]/td</td>
+	<td>jasonzhang@hotmail.com</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test12"></a><table class="test_case"><thead><tr><td colspan="4">Test case: ModifyPCmember</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Program Committee</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Modify')])[3]</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=ifChair_N</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test13"></a><table class="test_case"><thead><tr><td colspan="4">Test case: DeletePCmemeber</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Program Committee</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Delete')])[3]</td>
+	<td></td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test14"></a><table class="test_case"><thead><tr><td colspan="4">Test case: AddTopic</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Research topic</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=topic</td>
+	<td>r</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>verifyElementPresent</td>
+	<td>//div[@id='main']/form[2]/fieldset/table/tbody/tr[3]/td</td>
+	<td>r</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test15"></a><table class="test_case"><thead><tr><td colspan="4">Test case: DeleteTopic</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Research topic</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'delete')])[3]</td>
+	<td></td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test16"></a><table class="test_case"><thead><tr><td colspan="4">Test case: AddTestQuestion</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Review questions</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=question</td>
+	<td>test12345</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=listOfChoice1</td>
+	<td>test</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=position1</td>
+	<td>1</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>verifyElementPresent</td>
+	<td>//div[@id='main']/form[2]/fieldset/table/tbody/tr[6]/td</td>
+	<td>test12345</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test17"></a><table class="test_case"><thead><tr><td colspan="4">Test case: DeleteTestQuestion</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Review questions</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Delete')])[6]</td>
+	<td></td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test18"></a><table class="test_case"><thead><tr><td colspan="4">Test case: AddStatusCode</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Status code</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=label</td>
+	<td>testste</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>verifyElementPresent</td>
+	<td>//div[@id='main']/form[2]/fieldset/table/tbody/tr[2]/td[2]</td>
+	<td>testste</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test19"></a><table class="test_case"><thead><tr><td colspan="4">Test case: DeleteStatusCode</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Status code</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Delete')])[2]</td>
+	<td></td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test20"></a><table class="test_case"><thead><tr><td colspan="4">Test case: CloseSubmission</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Close/Open submission phase</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=Close</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Paper</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>select</td>
+	<td>id=conference</td>
+	<td>label=IEEE 2017 ICWS Area 1</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>verifyElementPresent</td>
+	<td>css=form.form-vertical.</td>
+	<td> The Submission is closed. </td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test21"></a><table class="test_case"><thead><tr><td colspan="4">Test case: OpenSubmission</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Close/Open submission phase</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=Open</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Paper</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>select</td>
+	<td>id=conference</td>
+	<td>label=IEEE 2017 ICWS Area 1</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>verifyElementPresent</td>
+	<td>css=input.btn.primary</td>
+	<td>Submit this paper</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test22"></a><table class="test_case"><thead><tr><td colspan="4">Test case: ViewEmailTemplate</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Email template management</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=View</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>verifyElementPresent</td>
+	<td>css=h3</td>
+	<td>Subject: Paper Accepted</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test23"></a><table class="test_case"><thead><tr><td colspan="4">Test case: ModifyEmailTemplate</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Email template management</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Modify</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>verifyElementPresent</td>
+	<td>css=input.btn.primary</td>
+	<td>Submit</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test24"></a><table class="test_case"><thead><tr><td colspan="4">Test case: SubmitPaperOnBehalf</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Submit a paper on behalf of author</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>verifyElementPresent</td>
+	<td>css=input.btn.primary</td>
+	<td>Create A New Paper</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test25"></a><table class="test_case"><thead><tr><td colspan="4">Test case: PaperOfConference</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=List of submitted papers</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>verifyElementPresent</td>
+	<td>id=conference</td>
+	<td>IEEE 2017 ICWS Area 1</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test26"></a><table class="test_case"><thead><tr><td colspan="4">Test case: AssignReviewer</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=manual assignment - check and modify</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Assign this paper')])[20]</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>select</td>
+	<td>name=6</td>
+	<td>label=Choose as a reviewer</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test27"></a><table class="test_case"><thead><tr><td colspan="4">Test case: ListAuthors</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=List of authors</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>verifyElementPresent</td>
+	<td>css=td</td>
+	<td>Shuang Zhang</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test28"></a><table class="test_case"><thead><tr><td colspan="4">Test case: ReviewState</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Review state</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>verifyElementPresent</td>
+	<td>css=#main &gt; h1</td>
+	<td>Review states</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test29"></a><table class="test_case"><thead><tr><td colspan="4">Test case: SearchAcceptPaper</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Search paper by status</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>verifyElementPresent</td>
+	<td>//div[@id='main']/form[2]/fieldset/table/tbody/tr/td[5]</td>
+	<td>Accept</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+<br><hr><br><a name="test30"></a><table class="test_case"><thead><tr><td colspan="4">Test case: SearchPaperId</td></tr></thead><tbody><tr class="done">
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=username</td>
+	<td>sxh</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=password</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Admin</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Search paper by id</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=id</td>
+	<td>1</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=input.btn.primary</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>verifyElementPresent</td>
+	<td>css=td</td>
+	<td>1 title1</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+</body></html>

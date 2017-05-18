@@ -1,0 +1,175 @@
+@(id:Long, questionList: List[ReviewQuestion], questionForm: Form[ReviewQuestion], tempQuestion: ReviewQuestion, isModify: Boolean)
+
+@import helper._
+@import b3.vertical.fieldConstructor
+
+@main {
+
+
+    <h1>Conference Administration tasks: ReviewQuestion</h1>
+    @if(isModify == true){
+        @b3.form(routes.ReviewQuestionController.update(id)){
+            <h3>ReviewQuestion</h3>
+            @b3.text(questionForm("question"), '_label -> "question",'value -> tempQuestion.question)
+            <p>Public</p>
+            @b3.select(questionForm("isPublic"), options("Yes" -> "Yes", "No" -> "No"), 'value -> tempQuestion.isPublic )
+            <fieldset>
+            <table class="myquestion zebra-striped">
+                <thead>
+                    <tr>
+                        <th>List of Choices</th>
+                        <th>position</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@b3.text(questionForm("listOfChoice1"), '_label -> "listOfChoice1",'value -> tempQuestion.listOfChoice1)</td>
+                        <td>@b3.text(questionForm("position1"), '_label -> "position1",'value -> tempQuestion.position1)</td>
+                    </tr>
+                    <tr>
+                        <td>@b3.text(questionForm("listOfChoice2"), '_label -> "listOfChoice2",'value -> tempQuestion.listOfChoice2)</td>
+                        <td>@b3.text(questionForm("position2"), '_label -> "position2",'value -> tempQuestion.position2)</td>
+                    </tr>
+                    <tr>
+                        <td>@b3.text(questionForm("listOfChoice3"), '_label -> "listOfChoice3",'value -> tempQuestion.listOfChoice3)</td>
+                        <td>@b3.text(questionForm("position3"), '_label -> "position3",'value -> tempQuestion.position3)</td>
+                    </tr>
+                    <tr>
+                        <td>@b3.text(questionForm("listOfChoice4"), '_label -> "listOfChoice4",'value -> tempQuestion.listOfChoice4)</td>
+                        <td>@b3.text(questionForm("position4"), '_label -> "position4",'value -> tempQuestion.position4)</td>
+                    </tr>
+                    <tr>
+                        <td>@b3.text(questionForm("listOfChoice5"), '_label -> "listOfChoice5",'value -> tempQuestion.listOfChoice5)</td>
+                        <td>@b3.text(questionForm("position5"), '_label -> "position5",'value -> tempQuestion.position5)</td>
+                    </tr>
+                    <tr>
+                        <td>@b3.text(questionForm("listOfChoice6"), '_label -> "listOfChoice6",'value -> tempQuestion.listOfChoice6)</td>
+                        <td>@b3.text(questionForm("position6"), '_label -> "position6",'value -> tempQuestion.position6)</td>
+                    </tr>
+                    <tr>
+                        <td>@b3.text(questionForm("listOfChoice7"), '_label -> "listOfChoice7",'value -> tempQuestion.listOfChoice7)</td>
+                        <td>@b3.text(questionForm("position7"), '_label -> "position7",'value -> tempQuestion.position7)</td>
+                    </tr>
+                </tbody>
+            </table>
+                </fieldset>
+
+
+            <div class="actions">
+                <input type="submit" value="Modify" class="btn primary">
+            </div>
+        }
+
+        @b3.form(routes.ReviewQuestionController.retriveAll()){
+
+            <fieldset>
+                <table class="myquestion zebra-striped">
+                    <thead>
+                        <tr>
+                            <th>Question</th>
+                            <th>Public</th>
+                            <th>Modify</th>
+                            <th>delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    @for(question <- questionList) {
+                        <tr>
+                            <td>@question.question</td>
+                            <td>@question.isPublic</td>
+                            <td><a href="@routes.ReviewQuestionController.edit(question.id)">Modify</a></td>
+                            <td><a href="@routes.ReviewQuestionController.deleteQuestion(question.id)">Delete</a></td>
+                        </tr>
+                    }
+
+                    </tbody>
+                </table>
+
+            </fieldset>
+        }
+
+
+    }else{
+        @b3.form(routes.ReviewQuestionController.createQuestion()){
+            <h3>ReviewQuestion</h3>
+            @b3.text(questionForm("question"), '_label -> "question",'_help -> "")
+            <p>Public</p>
+            @b3.select(questionForm("isPublic"), options("Yes" -> "Yes", "No" -> "No"), '_label -> "" )
+            <fieldset>
+            <table class="myquestion zebra-striped">
+                <thead>
+                    <tr>
+                        <th>List of Choices</th>
+                        <th>position</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@b3.text(questionForm("listOfChoice1"), '_label -> "listOfChoice1",'_help -> "")</td>
+                        <td>@b3.text(questionForm("position1"), '_label -> "position1",'_help -> "")</td>
+                    </tr>
+                    <tr>
+                        <td>@b3.text(questionForm("listOfChoice2"), '_label -> "listOfChoice2",'_help -> "")</td>
+                        <td>@b3.text(questionForm("position2"), '_label -> "position2",'_help -> "")</td>
+                    </tr>
+                    <tr>
+                        <td>@b3.text(questionForm("listOfChoice3"), '_label -> "listOfChoice3",'_help -> "")</td>
+                        <td>@b3.text(questionForm("position3"), '_label -> "position3",'_help -> "")</td>
+                    </tr>
+                    <tr>
+                        <td>@b3.text(questionForm("listOfChoice4"), '_label -> "listOfChoice4",'_help -> "")</td>
+                        <td>@b3.text(questionForm("position4"), '_label -> "position4",'_help -> "")</td>
+                    </tr>
+                    <tr>
+                        <td>@b3.text(questionForm("listOfChoice5"), '_label -> "listOfChoice5",'_help -> "")</td>
+                        <td>@b3.text(questionForm("position5"), '_label -> "position5",'_help -> "")</td>
+                    </tr>
+                    <tr>
+                        <td>@b3.text(questionForm("listOfChoice6"), '_label -> "listOfChoice6",'_help -> "")</td>
+                        <td>@b3.text(questionForm("position6"), '_label -> "position6",'_help -> "")</td>
+                    </tr>
+                    <tr>
+                        <td>@b3.text(questionForm("listOfChoice7"), '_label -> "listOfChoice7",'_help -> "")</td>
+                        <td>@b3.text(questionForm("position7"), '_label -> "position7",'_help -> "")</td>
+                    </tr>
+                </tbody>
+            </table>
+            </fieldset>
+
+            <div class="actions">
+                <input type="submit" value="Insert" class="btn primary">
+            </div>
+        }
+
+        @b3.form(routes.ReviewQuestionController.retriveAll()){
+
+            <fieldset>
+                <table class="myquestion zebra-striped">
+                    <thead>
+                        <tr>
+                            <th>Question</th>
+                            <th>Public</th>
+                            <th>Modify</th>
+                            <th>delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    @for(question <- questionList) {
+                        <tr>
+                            <td>@question.question</td>
+                            <td>@question.isPublic</td>
+                            <td><a href="@routes.ReviewQuestionController.edit(question.id)">Modify</a></td>
+                            <td><a href="@routes.ReviewQuestionController.deleteQuestion(question.id)">Delete</a></td>
+                        </tr>
+                    }
+
+                    </tbody>
+                </table>
+
+            </fieldset>
+        }
+    }
+
+}

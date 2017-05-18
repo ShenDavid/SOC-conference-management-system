@@ -1,0 +1,53 @@
+@(id:Long,topicForm: Form[Topic], topicInfo: List[Topic],topic:Topic)
+
+@import helper._
+
+@import b3.vertical.fieldConstructor
+
+@main {
+
+    <h1>Research Topic</h1>
+    @b3.form(routes.TopicController.update(id)) {
+
+
+        @b3.text(topicForm("topic"), '_label -> "label", '_help -> "",'value ->topic.topic)
+
+        <div class="actions">
+            <input type="submit" value="Insert" class="btn primary">
+        </div>
+
+    }
+
+    @b3.form(routes.TopicController.showMyTopic()) {
+
+        <fieldset>
+
+
+
+            <table class="mypaper zebra-striped">
+                <thead>
+                    <tr>
+                        <th>label</th>
+                        <th>modify</th>
+                        <th>delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                @for(topic <- topicInfo) {
+                    <tr>
+                        <td>@topic.topic</td>
+                        <td><a href="@routes.TopicController.edit(topic.id)">modify</a></td>
+                        <td><a href="@routes.TopicController.delete(topic.id)">delete</a></td>
+                    </tr>
+                }
+
+                </tbody>
+            </table>
+
+        </fieldset>
+
+
+    }
+
+}

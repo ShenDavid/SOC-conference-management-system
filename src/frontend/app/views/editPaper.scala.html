@@ -1,0 +1,95 @@
+@(id: Long, paperForm: Form[Paper], paperInfo: Paper)
+
+@import helper._
+
+@import b3.vertical.fieldConstructor
+
+@main {
+    
+    <h1>Edit a paper</h1>
+    
+    @b3.form(routes.PaperController.update(id)) {
+
+            @b3.text(paperForm("title"), '_label -> "Title", '_help -> "",'value ->paperInfo.title)
+            @b3.text(paperForm("topic"), '_label -> "Topic", '_help -> "",'value ->paperInfo.topic)
+            @b3.email(paperForm("contactemail"), '_label -> "Email of Contact Author", 'placeholder -> "example@mail.com",'value ->paperInfo.contactemail)
+            @*<br><br><br><br>@b3.email(paperForm("confirmemail"), '_label -> "Confirm Email", '_help -> "",'value ->paperInfo.confirmemail)*@
+
+            <br><br>
+
+            <table class="myquestion zebra-striped">
+                    <thead>
+                            <tr>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Affiliation</th>
+                                    <th>Email</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                    <td>@b3.text(paperForm("firstname1"), '_label -> "First Name", '_help -> "")</td>
+                                    <td>@b3.text(paperForm("lastname1"), '_label -> "Last Name", '_help -> "")</td>
+                                    <td>@b3.text(paperForm("affilation1"), '_label -> "Affiliation", '_help -> "")</td>
+                                    <td>@b3.email(paperForm("email1"), '_label -> "Email", '_help -> "")</td>
+                            </tr>
+
+                            <tr>
+                                    <td>@b3.text(paperForm("firstname2"), '_label -> "First Name", '_help -> "")</td>
+                                    <td>@b3.text(paperForm("lastname2"), '_label -> "Last Name", '_help -> "")</td>
+                                    <td>@b3.text(paperForm("affilation2"), '_label -> "Affiliation", '_help -> "")</td>
+                                    <td>@b3.email(paperForm("email2"), '_label -> "Email", '_help -> "")</td>
+                            </tr>
+
+                            <tr>
+                                    <td>@b3.text(paperForm("firstname3"), '_label -> "First Name", '_help -> "")</td>
+                                    <td>@b3.text(paperForm("lastname3"), '_label -> "Last Name", '_help -> "")</td>
+                                    <td>@b3.text(paperForm("affilation3"), '_label -> "Affiliation", '_help -> "")</td>
+                                    <td>@b3.email(paperForm("email3"), '_label -> "Email", '_help -> "")</td>
+
+                    <tr>
+                            <td>@b3.text(paperForm("firstname4"), '_label -> "First Name", '_help -> "")</td>
+                            <td>@b3.text(paperForm("lastname4"), '_label -> "Last Name", '_help -> "")</td>
+                            <td>@b3.text(paperForm("affilation4"), '_label -> "Affiliation", '_help -> "")</td>
+                            <td>@b3.email(paperForm("email4"), '_label -> "Email", '_help -> "")</td>
+                    </tr>
+
+                            <tr>
+                                    <td>@b3.text(paperForm("firstname5"), '_label -> "First Name", '_help -> "")</td>
+                                    <td>@b3.text(paperForm("lastname5"), '_label -> "Last Name", '_help -> "")</td>
+                                    <td>@b3.text(paperForm("affilation5"), '_label -> "Affiliation", '_help -> "")</td>
+                                    <td>@b3.email(paperForm("email5"), '_label -> "Email", '_help -> "")</td>
+                            </tr>
+
+                            <tr>
+                                    <td>@b3.text(paperForm("firstname6"), '_label -> "First Name", '_help -> "")</td>
+                                    <td>@b3.text(paperForm("lastname6"), '_label -> "Last Name", '_help -> "")</td>
+                                    <td>@b3.text(paperForm("affilation6"), '_label -> "Affiliation", '_help -> "")</td>
+                                    <td>@b3.email(paperForm("email6"), '_label -> "Email", '_help -> "")</td>
+                            </tr>
+
+                            <tr>
+                                    <td>@b3.text(paperForm("firstname7"), '_label -> "First Name", '_help -> "")</td>
+                                    <td>@b3.text(paperForm("lastname7"), '_label -> "Last Name", '_help -> "")</td>
+                                    <td>@b3.text(paperForm("affilation7"), '_label -> "Affiliation", '_help -> "")</td>
+                                    <td>@b3.email(paperForm("email7"), '_label -> "Email", '_help -> "")</td>
+                            </tr>
+
+                    </tbody>
+            </table>
+
+
+            @b3.text(paperForm("otherauthor"), '_label -> "Other authors", '_help -> "",'value ->paperInfo.otherauthor)
+            @b3.radio( paperForm("candidate"), options = Seq("Y"->"Yes","N"->"No"), '_label -> "Best student paper award candidate", 'value -> paperInfo.candidate)
+            <br><br><br><br>@b3.radio( paperForm("volunteer"), options = Seq("Y"->"Yes","N"->"No", "T"->"To be decided"), '_label -> "Student Volunteer?",'value -> paperInfo.volunteer)
+            <br><br><br>@b3.textarea(paperForm("paperabstract"), '_label -> "Abstract", 'rows -> 3,'value ->paperInfo.paperabstract)
+
+
+        <div class="actions">
+            <input type="submit" value="Edit this paper" class="btn primary"> or
+            <a href="@routes.ShowPaperController.showMyPaper()" class="btn">Cancel</a>
+        </div>
+        
+    }
+    
+}

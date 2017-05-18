@@ -1,0 +1,20 @@
+@(id:String)
+
+@import helper._
+
+@import b3.vertical.fieldConstructor
+
+@main {
+
+    <h1>Logo Submitted</h1>
+    @b3.form(routes.ShowPaperController.showMyPaper()) {
+
+        Thank you. Your paper abstract has been submitted successfully. Please keep your paper id: @id <br>
+        <div class="actions">
+            <input type="submit" value="Go back to my paper page" class="btn primary">
+        </div>
+
+    }
+
+
+}

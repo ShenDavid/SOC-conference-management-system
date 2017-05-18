@@ -1,0 +1,37 @@
+@(userlist: List[Long], revieweridlist: List[Long], userMap: Map[Long, String])
+
+@import helper._
+
+@import b3.vertical.fieldConstructor
+
+@main {
+
+    <h1>Assign Reviewer To This Paper</h1>
+
+    @b3.form(routes.ReviewerController.updateReviewers()) {
+
+        <fieldset>
+
+        @for(user <- userlist){
+            <h3>@userMap.get(user):</h3>
+            @if(revieweridlist.contains(user)) {
+                <select name="@user">
+                    <option value="YES" selected="selected">Choose as a reviewer</option>
+                    <option value="NO">Don't Choose as a reviewer</option>
+                </select>
+            }else {
+                <select name="@user">
+                    <option value="YES">Choose as a reviewer</option>
+                    <option value="NO"  selected="selected">Don't Choose as a reviewer</option>
+                </select>
+            }
+                <br>
+            }
+
+        </fieldset>
+
+        <div class="actions">
+            <input type="submit" value="Submit" class="btn primary">
+        </div>
+    }
+}

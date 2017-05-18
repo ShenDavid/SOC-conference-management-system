@@ -1,0 +1,82 @@
+@(paperForm: Form[Paper], paperInfo: List[Paper], session: Http.Session, confoptions:Map[String, String],defaultConf:String)
+
+@import helper._
+
+@import b3.vertical.fieldConstructor
+
+@main {
+
+
+    <h1>Show My Paper</h1>
+    @b3.form(routes.PaperController.create()) {
+
+
+        @b3.select(
+            paperForm("conference"),
+            options(confoptions),
+            '_label -> "Select", 'value -> defaultConf,
+            '_showConstraints -> false
+        )
+
+        <div class="actions">
+            <input type="submit" value="Create A New Paper" class="btn primary">
+        </div>
+
+    }
+
+    @b3.form(routes.ShowPaperController.showMyPaper()) {
+
+        <fieldset>
+
+
+
+            <table class="mypaper zebra-striped">
+                <thead>
+                    <tr>
+                        <th>Paper Id / Title </th>
+                        <th>Conference / Submission Deadline</th>
+                        <th>Topic</th>
+                        <th>Format / File Size</th>
+                        <th>Submission Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                @for(paper <- paperInfo) {
+                    <tr>
+                        <td>@paper.id    @paper.title</td>
+                        <td>@paper.conference </td>
+                        @*should deal if author exist*@
+                        <td>@paper.topic</td>
+                            @if(paper.ifsubmit == "Y") {
+                                <td>@paper.format @paper.papersize byte</td>
+                            } else {
+                                <td><a class="btn success" id="upload" href="@routes.PaperController.uploadFile(paper.id)">Upload a new paper</a></td>
+                            }
+
+                        <td>@paper.date</td>
+
+                        @*<td>Modify</td>*@
+                    </tr>
+                }
+
+                </tbody>
+            </table>
+
+        </fieldset>
+
+
+    }
+
+    @if(session.containsKey("Submitted") && session.get("Submitted").toString == "ok"){
+        <script>
+            var str = "Thank you. Your paper abstract has been submitted successfully. Please keep your paper id:"+paper.id;
+            alert(str);
+        </script>
+        @{
+            session.remove("Submitted")
+            session.remove("paperid")
+        }
+
+    }
+}

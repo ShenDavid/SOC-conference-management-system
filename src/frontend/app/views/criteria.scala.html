@@ -1,0 +1,98 @@
+@(id:Long, criteriaList: List[Criteria], criteriaForm: Form[Criteria], tempCriteria: Criteria, isModify: Boolean)
+
+@import helper._
+@import b3.vertical.fieldConstructor
+
+@main {
+
+
+  <h1>Conference Administration tasks: Criteria</h1>
+@if(isModify == true){
+  @b3.form(routes.CriteriaController.update(id)){
+    <h3>Criteria</h3>
+    @b3.text(criteriaForm("label"), '_label -> "label",'value -> tempCriteria.label)
+    @b3.text(criteriaForm("explanations"), '_label -> "explanations",'value -> tempCriteria.explanations)
+    @b3.text(criteriaForm("weight"), '_label -> "weight",'value -> tempCriteria.weight)
+
+    <div class="actions">
+      <input type="submit" value="Modify" class="btn primary">
+    </div>
+  }
+
+  @b3.form(routes.CriteriaController.retriveAllCriteria()){
+
+      <fieldset>
+        <table class="mycriteria zebra-striped">
+          <thead>
+            <tr>
+              <th>label</th>
+              <th>explanations</th>
+              <th>weight</th>
+              <th>Modify</th>
+              <th>delete</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          @for(criteria <- criteriaList) {
+            <tr>
+              <td>@criteria.label</td>
+              <td>@criteria.explanations</td>
+              <td>@criteria.weight</td>
+              <td><a href="@routes.CriteriaController.edit(criteria.id)">Modify</a></td>
+              <td><a href="@routes.CriteriaController.deleteCriteria(criteria.id)">Delete</a></td>
+            </tr>
+          }
+
+          </tbody>
+        </table>
+
+      </fieldset>
+  }
+
+
+}else{
+  @b3.form(routes.CriteriaController.createCriteria()){
+    <h3>Criteria</h3>
+    @b3.text(criteriaForm("label"), '_label -> "label",'_help -> "")
+    @b3.text(criteriaForm("explanations"), '_label -> "explanations",'_help -> "")
+    @b3.text(criteriaForm("weight"), '_label -> "weight",'_help -> "")
+
+    <div class="actions">
+      <input type="submit" value="Insert" class="btn primary">
+    </div>
+  }
+
+  @b3.form(routes.CriteriaController.retriveAllCriteria()){
+
+    <fieldset>
+      <table class="mycriteria zebra-striped">
+        <thead>
+          <tr>
+            <th>label</th>
+            <th>explanations</th>
+            <th>weight</th>
+            <th>Modify</th>
+            <th>delete</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        @for(criteria <- criteriaList) {
+          <tr>
+            <td>@criteria.label</td>
+            <td>@criteria.explanations</td>
+            <td>@criteria.weight</td>
+            <td><a href="@routes.CriteriaController.edit(criteria.id)">Modify</a></td>
+            <td><a href="@routes.CriteriaController.deleteCriteria(criteria.id)">Delete</a></td>
+          </tr>
+        }
+
+        </tbody>
+      </table>
+
+    </fieldset>
+  }
+}
+
+}

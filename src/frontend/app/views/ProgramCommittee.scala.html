@@ -1,0 +1,55 @@
+@(pcmemberForm: Form[PCmember], all_member: List[PCmember], message: Integer)
+
+@import helper._
+
+@import b3.vertical.fieldConstructor
+
+@main {
+
+    <h1>Modify PC Member Information</h1>
+
+    @b3.form(routes.PCmemberController.addmember()) {
+        <fieldset>
+        @b3.email(pcmemberForm("email"), '_label -> "Email")
+        @b3.text(pcmemberForm("lastname"), '_label -> "Last Name")
+        @b3.text(pcmemberForm("firstname"), '_label -> "First Name")
+        @b3.text(pcmemberForm("affiliation"), '_label -> "Affiliation")
+        @b3.tel(pcmemberForm("phone"), '_label -> "Phone")
+        @b3.textarea(pcmemberForm("address"), '_label -> "Address")
+
+        @b3.radio( pcmemberForm("ifChair"), options = Seq("Y"->"YES","N"->"NO"),'_label -> "Is chair?")
+        @b3.radio( pcmemberForm("ifReviewer"), options = Seq("Y"->"YES","N"->"NO"),'_label -> "Is Reviewer?")
+
+        </fieldset>
+
+        <div class="actions">
+            <input type="submit" value="submit" class="btn primary">
+            <a href="@routes.ShowPaperController.showMyPaper()" class="btn">Cancel</a>
+        </div>
+    }
+
+    <table class="mypaper zebra-striped">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Is Chair?</th>
+                <th>Is Reviewer?</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        @for(member <- all_member) {
+            <tr>
+                <td>@member.email</td>
+                <td>@member.firstname @member.lastname</td>
+                @*should deal if author exist*@
+                <td>@member.ifChair</td>
+                <td>@member.ifReviewer</td>
+                <td><a href="/singlepcmember/@member.email">Modify</a>or<a href="/deletepcmember/@member.email">Delete</a></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

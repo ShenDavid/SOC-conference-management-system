@@ -1,0 +1,34 @@
+@(userForm: Form[User])(err:Integer)
+
+@import helper._
+
+@import b3.vertical.fieldConstructor
+
+
+
+@main {
+
+    <h1> User login</h1>
+  @b3.form(routes.UserController.verifyUser()) {
+
+    <fieldset>
+      @b3.text(userForm("username"), '_label -> "Username", 'required -> "true")
+      <br>
+      @b3.password(userForm("password"), '_label -> "Password", 'required -> "true")
+
+    </fieldset>
+
+    <div class="actions">
+      <input type="submit" value="Login" class="btn primary"> or
+      <a class="btn success" id="register" href="@routes.UserController.register()">register</a>
+      <a href="@routes.UserController.verifyAuth()">forget password</a>
+    </div>
+
+  }
+
+  @if(err==1){
+    <div>Username or Password Error!</div>
+  }
+
+
+}

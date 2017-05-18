@@ -1,0 +1,23 @@
+@(userForm: Form[User])
+
+@import helper._
+
+@import b3.vertical.fieldConstructor
+
+@main {
+
+  <h1>Validate Temporary Password</h1>
+  <h3 style="color: red">Temporary password has been sent to your email.</h3>
+  @b3.form(routes.UserController.verifyTmpPwd()) {
+
+    <fieldset>
+    @b3.text(userForm("password"), '_label -> "Password", 'placeholder -> "", 'required -> "true")
+    </fieldset>
+
+    <div class="actions">
+      <input type="submit" value="Verify" class="btn primary">
+      <a href="@routes.ShowPaperController.showMyPaper()" class="btn">Cancel</a>
+    </div>
+
+  }
+}

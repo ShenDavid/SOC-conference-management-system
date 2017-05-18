@@ -1,0 +1,67 @@
+@(conferencetitle:String)(role:Integer)
+
+@import helper._
+
+@import b3.vertical.fieldConstructor
+<style>
+        table, th, td {
+            border: 1px solid black;
+            text-align: center;
+        }
+</style>
+@main {
+
+
+    @if(role==2 || role==3) {
+    <h3>Administrative Tasks</h3>
+    <table style="width:100%; border: 1px solid black">
+        <tr>
+            <td><a href='/sysconfig'>Configure system</a></td>
+            <td colspan="2"><a href='/pcmember'>Program Committee</a></td>
+        </tr>
+        <tr>
+            <td><a href="@routes.TopicController.showMyTopic()">Research topic</a></td>
+            <td><a href='/criterias/all'>Criteria</a></td>
+            <td><a href='/reviewquestions/all'>Review questions</a></td>
+        </tr>
+        <tr>
+            <td><a href='/statuscodes/all'>Status code</a></td>
+            <td><a href="@routes.configSysController.update()">Close/Open submission phase</a></td>
+            <td><a href='/logo/upload'>Logo setting</a></td>
+        </tr>
+        <tr>
+            <td><a href='/emailTemplate'>Email template management</a></td>
+            <td><a href="@routes.ShowPaperController.getConferencePaper(conferencetitle)">
+                Submit a paper on behalf of author</a></td>
+            <td><a href="@routes.AdminController.download()">Download papers submitted</a></td>
+        </tr>
+    </table>
+    }
+    <br>
+    @if(role==1||role==3) {
+    <br>
+    <h3>PC Chair Tasks</h3>
+    <table style="width:100%; border: 1px solid black">
+        <tr>
+            <td><a href='/allpaper/conference'>List of submitted papers</a></td>
+            <td colspan="2"><a href='/paper/conference/assign'>manual assignment - check and modify</a></td>
+        </tr>
+        <tr>
+            <td><a href='/author/paper'>List of authors</a></td>
+            <td><a href='/review/state'>Review state</a></td>
+        </tr>
+        <tr>
+            <td><a href='/GENERATECSV'>Generate an excel file containing review details and status of all papers submitted)</a></td>
+            <td><a href='/admin/downloadexcelpapers '>Download excel file of submitted papers</a></td>
+            <td><a href='/admin/downloadacceptedpapers'>Download excel file of accepted papers</a></td>
+            <td><a href='/downloadcsv'>DOWNLOAD CSV</a></td>
+            <td><a href='/reviewerreminder'>Send reminder to reviewers</a></td>
+            <td><a href='/allpaper/conference/status'>Search paper by status</a></td>
+            <td><a href='/allpaper/conference/id'>Search paper by id</a></td>
+
+            <td><a href='/authorreminder'>Send reminder to authors</a></td>
+            <td><a href='/paperstatus'>Status of Papers</a></td>
+        </tr>
+    </table>
+    }
+}

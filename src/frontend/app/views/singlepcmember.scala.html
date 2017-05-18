@@ -1,0 +1,31 @@
+@(pcmemberForm: Form[PCmember], member: PCmember, message: Integer)
+
+@import helper._
+
+@import b3.vertical.fieldConstructor
+
+@main {
+
+    <h1>Modify PC Member Information</h1>
+
+    @b3.form(routes.PCmemberController.ModifyPCmember()) {
+        <fieldset>
+            <label for="textarea">Email</label>
+            <input name="email" value="@member.email" readonly>
+            @b3.text(pcmemberForm("lastname"), '_label -> "Last Name", 'value -> member.lastname)
+            @b3.text(pcmemberForm("firstname"), '_label -> "First Name", 'value -> member.firstname)
+            @b3.text(pcmemberForm("affiliation"), '_label -> "Affiliation", 'value -> member.affiliation)
+            @b3.tel(pcmemberForm("phone"), '_label -> "Phone", 'value -> member.phone)
+            @b3.textarea(pcmemberForm("address"), '_label -> "Address", 'value -> member.address)
+
+            @b3.radio( pcmemberForm("ifChair"), options = Seq("Y"->"YES","N"->"NO"),'_label -> "Is chair?", 'value -> member.ifChair)
+            @b3.radio( pcmemberForm("ifReviewer"), options = Seq("Y"->"YES","N"->"NO"),'_label -> "Is Reviewer?", 'value -> member.ifReviewer )
+
+        </fieldset>
+
+        <div class="actions">
+            <input type="submit" value="submit" class="btn primary">
+            <a href="@routes.ShowPaperController.showMyPaper()" class="btn">Cancel</a>
+        </div>
+    }
+}

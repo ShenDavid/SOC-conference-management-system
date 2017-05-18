@@ -1,0 +1,20 @@
+@()
+
+@import helper._
+
+@import b3.vertical.fieldConstructor
+
+@main {
+
+    <h1>Logo Submitted</h1>
+    @b3.form(routes.ShowConferenceController.showMyConference()) {
+
+        The Logo is submitted.<br>
+        <div class="actions">
+            <input type="submit" value="Go back to main page" class="btn primary">
+        </div>
+
+    }
+
+
+}

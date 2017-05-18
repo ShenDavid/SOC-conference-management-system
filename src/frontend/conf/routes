@@ -1,0 +1,171 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Default path will just redirect to the computer list
+GET     /                           controllers.UserController.login()
+
+# Computers list (look at the default values for pagination parameters)
+GET     /computers                  controllers.HomeController.list(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
+
+# Add computer
+GET     /computers/new              controllers.HomeController.create()
+POST    /computers                  controllers.HomeController.save()
+
+# Edit existing computer
+GET     /computers/:id              controllers.HomeController.edit(id:Long)
+POST    /computers/:id              controllers.HomeController.update(id:Long)
+
+# Delete a computer
+POST    /computers/:id/delete       controllers.HomeController.delete(id:Long)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+# Edit profile
+GET     /profile                   controllers.ProfileController.enterProfile()
+GET     /profile/edit              controllers.ProfileController.edit()
+GET    /profile/delete        controllers.ProfileController.delete()
+
+# Register a new user
+GET     /register                   controllers.UserController.register()
+POST    /register                   controllers.UserController.addUser()
+
+# Login
+GET     /login                      controllers.UserController.login()
+POST    /login                      controllers.UserController.verifyUser()
+GET     /logout                     controllers.UserController.logout()
+
+# Set password
+GET     /verifyChangePwdAuth        controllers.UserController.verifyAuth()
+GET    /temporarypwd               controllers.UserController.sendTemporaryPwd()
+POST    /temporarypwd               controllers.UserController.verifyTmpPwd()
+POST    /verifyChangePwdAuth        controllers.UserController.verifyQA()
+POST     /changePwd                  controllers.UserController.changepwd()
+
+# Assign paper
+GET     /paper/assign/new/:paperid           controllers.ReviewerController.enterAssignPaper(paperid:Long)
+POST    /assignpaper                        controllers.ReviewerController.updateReviewers()
+#GET     /paper/assign/save/:userid/:paperid           controllers.PaperController.saveReviewer(userid:Long, paperid:Long)
+#GET     /paper/assign/delete/:userid/:paperid           controllers.PaperController.deleteReviewer(userid:Long, paperid:Long)
+
+# Submit paper
+
+GET  /papers/new                        controllers.PaperController.create()
+POST  /papers                           controllers.PaperController.save(conf:String)
+
+#Edit paper
+GET     /papers/:id                     controllers.PaperController.edit(id:Long)
+POST    /papers/:id                     controllers.PaperController.update(id:Long)
+#show all papers of a user
+GET   /paper                            controllers.ShowPaperController.showMyPaper()
+GET   /paper/conference                  controllers.ShowPaperController.getConferencePaper(conferencename:String)
+GET   /paper/conference/assign                  controllers.ShowPaperController.getConferencePaperToAssign()
+GET   /allpaper/conference                  controllers.ShowPaperController.getAllConferencePaper()
+GET   /allpaper/conference/status                  controllers.ShowPaperController.showStatusPaper()
+GET   /allpaper/conference/status/get                  controllers.ShowPaperController.getStatusPaper()
+
+GET   /allpaper/conference/id                  controllers.ShowPaperController.showIdPaper()
+GET   /allpaper/conference/id/get                  controllers.ShowPaperController.getIdPaper()
+
+# Submit topic
+
+POST  /topics/new                           controllers.TopicController.save()
+
+#Edit topic
+GET     /topics/:id                     controllers.TopicController.edit(id:Long)
+POST    /topics/:id                     controllers.TopicController.update(id:Long)
+GET    /topics/delete/:id                     controllers.TopicController.delete(id:Long)
+
+#show all topics of a user
+GET   /topic/conference                  controllers.TopicController.showMyTopic()
+
+GET     /GENERATECSV                    controllers.GenerateCSVController.generateCSV()
+GET     /downloadcsv                    controllers.GenerateCSVController.downloadCSV()
+
+#Upload paper
+GET    /papers/:id/upload               controllers.PaperController.uploadFile(id:Long)
+POST    /papers/:id/upload              controllers.PaperController.selectFile(id:Long)
+
+#show all conference of a user
+GET   /conference                      controllers.ShowConferenceController.showMyConference()
+POST  /conference/search               controllers.ShowConferenceController.searchConference()
+GET     /admin/downloadexcelpapers           controllers.ShowPaperController.downloadExcelPaper()
+GET     /admin/downloadacceptedpapers           controllers.ShowPaperController.downloadAcceptedPaper()
+
+# Reviewer page
+GET     /review                    controllers.ReviewerController.enterReviewConf()
+GET     /review/paper              controllers.ReviewerController.enterReviewPaper(confName:String)
+
+GET     /download                   controllers.ReviewerController.download(filename:Long)
+GET     /editreview/:paperid                     controllers.ReviewerController.review(paperid:Long,conf:String)
+POST    /editreview                     controllers.ReviewerController.updateReview()
+GET     /showreview/:paperid                     controllers.ReviewerController.showreview(paperid:Long)
+GET     /printreview                    controllers.ReviewerController.printreview(review:String)
+GET     /review/state                   controllers.ReviewerController.enterReviewState()
+
+# show author paper
+GET     /author/paper                   controllers.PaperController.showAuthorPaper()
+GET     /paper/one                   controllers.PaperController.showOnePaper(id:Long)
+POST    /gohome                         controllers.PaperController.index()
+
+GET     /emailTemplate                  controllers.EmailTemplateController.emailTemplate()
+GET     /typeemailTemplate/:email_type    controllers.EmailTemplateController.TypeEmailTemplate(email_type:String)
+GET     /modifymailTemplate/:email_type           controllers.EmailTemplateController.GetModifyEmailTemplate(email_type:String)
+POST    /updatemailTemplate          controllers.EmailTemplateController.updateEmailTemplate()
+
+POST    /emailTemplate                  controllers.EmailTemplateController.updateEmailTemplate()
+
+GET    /criteria/:id                controllers.CriteriaController.edit(id:Long)
+GET    /criteria/deleting/:id          controllers.CriteriaController.deleteCriteria(id:Long)
+GET     /criterias/all                   controllers.CriteriaController.retriveAllCriteria()
+POST    /criteria/:id               controllers.CriteriaController.update(id:Long)
+POST   /criteria                      controllers.CriteriaController.createCriteria()
+
+GET     /admin                          controllers.AdminController.adminPage(conferenceinfo:String)
+GET     /admin/downloadpapers           controllers.AdminController.download()
+
+GET     /sysconfig                      controllers.configSysController.enterConfigSystem()
+POST     /sysconfig                      controllers.configSysController.edit()
+
+GET     /sysconfig/updatephase                      controllers.configSysController.update()
+GET     /sysconfig/openphase                      controllers.configSysController.open()
+GET     /sysconfig/closephase                      controllers.configSysController.close()
+
+GET     /pcmember                       controllers.PCmemberController.enterPCmember()
+POST    /pcmember                       controllers.PCmemberController.addmember()
+
+GET     /singlepcmember/:email                 controllers.PCmemberController.GetPCmember(email:String)
+POST    /modifypcmember                     controllers.PCmemberController.ModifyPCmember()
+
+GET     /deletepcmember/:email                 controllers.PCmemberController.deletePCmember(email:String)
+
+GET    /criteria/:id                controllers.CriteriaController.edit(id:Long)
+GET    /criteria/deleting/:id          controllers.CriteriaController.deleteCriteria(id:Long)
+GET     /criterias/all                   controllers.CriteriaController.retriveAllCriteria()
+POST    /criteria/:id               controllers.CriteriaController.update(id:Long)
+POST   /criteria                      controllers.CriteriaController.createCriteria()
+
+GET    /reviewquestion/:id                controllers.ReviewQuestionController.edit(id:Long)
+GET    /reviewquestion/deleting/:id          controllers.ReviewQuestionController.deleteQuestion(id:Long)
+GET     /reviewquestions/all                   controllers.ReviewQuestionController.retriveAll()
+POST    /reviewquestion/:id               controllers.ReviewQuestionController.update(id:Long)
+POST   /reviewquestion                    controllers.ReviewQuestionController.createQuestion()
+
+GET    /statuscode/:id                controllers.StatusCodeController.edit(id:Long)
+GET    /statuscode/deleting/:id          controllers.StatusCodeController.deleteStatusCode(id:Long)
+GET     /statuscodes/all                   controllers.StatusCodeController.retriveAllStatusCode()
+POST    /statuscode/:id               controllers.StatusCodeController.update(id:Long)
+POST   /statuscode                    controllers.StatusCodeController.createStatusCode()
+
+#Upload logo
+GET    /logo/upload               controllers.LogoController.uploadFile()
+POST    /logo/upload              controllers.LogoController.selectFile()
+
+GET     /reviewerreminder           controllers.EmailTemplateController.SendReviewerReminder()
+GET     /authorreminder       controllers.EmailTemplateController.SendAuthorReminder()
+
+GET     /paperstatus                controllers.ShowPaperController.enterPaperStatus()
+GET     /enterpaperstatus/:id           controllers.ReviewerController.enterAssignPaperStatus(id:Long)
+POST    /updatestatus                   controllers.ReviewerController.updateStatus()
+GET     /showallreview/:id                  controllers.ReviewerController.showallreview(id:Long)

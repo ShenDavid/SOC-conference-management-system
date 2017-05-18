@@ -1,0 +1,121 @@
+@(profileForm: Form[Profile], profileObject: Profile, message: Integer)
+
+@import helper._
+
+@import b3.vertical.fieldConstructor
+
+@main {
+
+<h1>Edit profile</h1>
+
+    @{
+        if(message == -1) {
+                <div>Error!</div>
+        } else if(message == 1){
+                <div>insert successfully</div>
+
+        } else if(message == 2){
+                <div>update successfully</div>
+
+        } else if(message == 3){
+                <div>delete successfully</div>
+
+        } else if(message == 4){
+                <div>you haven't create your profile yet</div>
+
+        }
+    }
+
+@b3.form(routes.ProfileController.edit()) {
+
+<fieldset>
+        @b3.select(
+            profileForm("title"),
+            options(Profile.titles),
+            '_label -> "Title",
+            '_showConstraints -> false
+        )
+    @if(profileObject != null && profileObject.research != null) {
+        @b3.text(profileForm("research"), '_label -> "Research areas", 'value -> profileObject.research)
+    }   else{
+        @b3.text(profileForm("research"), '_label -> "Research areas")
+    }
+    @if(profileObject != null && profileObject.firstname != null) {
+        @b3.text(profileForm("firstname"), '_label -> "First Name", 'value -> profileObject.firstname)
+    }   else{
+        @b3.text(profileForm("firstname"), '_label -> "First Name")
+    }
+    @if(profileObject != null && profileObject.lastname != null) {
+        @b3.text(profileForm("lastname"), '_label -> "Last Name", 'value -> profileObject.lastname)
+    }   else{
+        @b3.text(profileForm("lastname"), '_label -> "Last Name")
+    }
+    @if(profileObject != null && profileObject.position != null) {
+        @b3.text(profileForm("position"), '_label -> "Position", 'value -> profileObject.position)
+    }   else{
+        @b3.text(profileForm("position"), '_label -> "Position")
+    }
+    @if(profileObject != null && profileObject.affiliation != null) {
+        @b3.text(profileForm("affiliation"), '_label -> "Affiliation", 'value -> profileObject.affiliation)
+    }   else{
+        @b3.text(profileForm("affiliation"), '_label -> "Affiliation")
+    }
+    @if(profileObject != null && profileObject.email != null) {
+        @b3.email(profileForm("email"), '_label -> "Email", 'value -> profileObject.email)
+    }   else{
+        @b3.email(profileForm("email"), '_label -> "Email")
+    }
+    @if(profileObject != null && profileObject.phone != null) {
+        @b3.tel(profileForm("phone"), '_label -> "Phone", 'value -> profileObject.phone)
+    }   else{
+        @b3.tel(profileForm("phone"), '_label -> "Phone")
+    }
+    @if(profileObject != null && profileObject.fax != null) {
+        @b3.text(profileForm("fax"), '_label -> "Fax", 'value -> profileObject.fax)
+    }   else{
+        @b3.text(profileForm("fax"), '_label -> "Fax")
+    }
+    @if(profileObject != null && profileObject.address != null) {
+        @b3.textarea(profileForm("address"), '_label -> "Address", 'value -> profileObject.address)
+    }   else{
+        @b3.textarea(profileForm("address"), '_label -> "Address")
+    }
+    @if(profileObject != null && profileObject.city != null) {
+        @b3.text(profileForm("city"), '_label -> "City", 'value -> profileObject.city)
+    }   else{
+        @b3.text(profileForm("city"), '_label -> "City")
+    }
+    @if(profileObject != null && profileObject.country != null) {
+        @b3.text(profileForm("country"), '_label -> "Country", 'value -> profileObject.country)
+    }   else{
+        @b3.text(profileForm("country"), '_label -> "Country")
+    }
+    @if(profileObject != null && profileObject.region != null) {
+        @b3.text(profileForm("region"), '_label -> "Region", 'value -> profileObject.region)
+    }   else{
+        @b3.text(profileForm("region"), '_label -> "Region")
+    }
+    @if(profileObject != null && profileObject.zipcode != null) {
+        @b3.number(profileForm("zipcode"), '_label -> "Zip Code", 'min -> 0, 'max -> 99999, 'value -> profileObject.zipcode)
+    }   else{
+        @b3.number(profileForm("zipcode"), '_label -> "Zip Code", 'min -> 0, 'max -> 99999)
+    }
+    @if(profileObject != null && profileObject.comment != null) {
+        @b3.textarea(profileForm("comment"), '_label -> "Comments", '_help -> "", 'rows -> 3, 'value -> profileObject.comment)
+    }   else{
+        @b3.textarea(profileForm("comment"), '_label -> "Comments", '_help -> "", 'rows -> 3)
+    }
+
+</fieldset>
+
+<div class="actions">
+    <input type="submit" value="Edit profile" class="btn primary">
+    <a href="@routes.ShowPaperController.showMyPaper()" class="btn">Cancel</a>
+    <a href="@routes.ProfileController.delete()" class="btn">Reset to empty</a>
+</div>
+
+
+
+}
+
+}

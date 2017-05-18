@@ -1,0 +1,74 @@
+@(conferenceForm: Form[Conference], conferenceInfo: List[Conference], session: Http.Session)
+
+@import helper._
+
+@import b3.vertical.fieldConstructor
+
+@main {
+
+
+
+    <h1>My Conference</h1>
+
+    @b3.form(routes.ShowConferenceController.searchConference()) {
+
+            @b3.select( conferenceForm("searchstatus"), options("All Status" -> "All Status", "Active" -> "Active", "Archived" -> "Archived"), '_label -> "Select")
+            <br>
+            @b3.text(conferenceForm("keyword"), '_label -> "Keyword")
+        <div class="actions">
+            <input type="submit" value="Search" class="btn primary">
+        </div>
+
+    }
+
+    @***<a href="@routes.PaperController.showAuthorPaper()">List of authors</a>***@
+
+    @b3.form(routes.ShowConferenceController.showMyConference()) {
+
+
+
+        <fieldset>
+
+
+            <table class="mypaper zebra-striped">
+                <thead>
+                    <tr>
+                        <th>Conference Acronym</th>
+                        <th>Location / Date	</th>
+                        <th>Status</th>
+                        <th colspan="3">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                @for(conference <- conferenceInfo) {
+                    <tr>
+                        <td>@conference.title</td>
+                        <td>@conference.location / @conference.date</td>
+                        <td>@conference.status</td>
+                        <td><a href="@routes.ShowPaperController.getConferencePaper(conference.title)">Paper</a></td>
+                            @if(conference.ifreviewer == "Y") {
+                                <td><a href="@routes.ReviewerController.enterReviewPaper(conference.title)">Review</a></td>
+
+                            } else {
+                                <td>Review</td>
+                            }
+                        @if(conference.ifadmin == "Y" || conference.ifchair == "Y") {
+                            <td><a href="@routes.AdminController.adminPage(conference.title)">Admin</a></td>
+                        } else {
+                            <td>Admin</td>
+                        }
+
+                        @*<td>Modify</td>*@
+                    </tr>
+                }
+
+                </tbody>
+            </table>
+
+        </fieldset>
+
+    }
+
+
+}

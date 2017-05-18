@@ -1,0 +1,57 @@
+@(paperForm: Form[Paper],papers: List[Paper], confoptions:Map[String, String], confname: String)
+
+@import helper._
+
+@import b3.vertical.fieldConstructor
+
+@main {
+
+
+    <h1>Here is the list of papers assigned to you. Use the download link to get the file, and the submit review link to enter or modify your review results.</h1>
+
+
+
+    @b3.select(
+        paperForm("conference"),
+        options(confoptions),
+        '_label -> "Select", 'value -> confname,
+        '_showConstraints -> false
+    )
+
+
+    @b3.form(routes.ShowPaperController.showMyPaper()) {
+
+        <fieldset>
+
+            <table class="mypaper zebra-striped">
+                <thead>
+                    <tr>
+                        <th>paper id </th>
+                        <th>paper title</th>
+                        <th>paper authors</th>
+                        <th colspan="4">action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                @for(paper <- papers) {
+                    <tr>
+                        <td>@paper.id</td>
+                        <td>@paper.title</td>
+                        <td>@paper.authors</td>
+                        <td><a href="@routes.ReviewerController.download(paper.id)">Download</a></td>
+                        <td><a href="@routes.ReviewerController.review(paper.id,confname)">Update review</a></td>
+                        <td><a href="@routes.ReviewerController.showreview(paper.id)">See review</a></td>
+                        <td><a href="@routes.ReviewerController.printreview(paper.review)">Print review</a></td>
+
+                    </tr>
+                }
+
+                </tbody>
+            </table>
+
+        </fieldset>
+
+
+    }
+}

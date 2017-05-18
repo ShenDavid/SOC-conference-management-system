@@ -1,0 +1,41 @@
+@(confcountInfo: List[ReviewCount])
+
+@import helper._
+
+@import b3.vertical.fieldConstructor
+
+@main {
+
+
+    <h1>Review states</h1>
+
+        <fieldset>
+
+            <table class="mypaper zebra-striped">
+                <thead>
+                    <tr>
+                        <th>Reviewer id</th>
+                        <th>Reviewer name</th>
+                        <th>Reviewer email</th>
+                        <th>papers reviewed</th>
+                        <th>papers left</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                @for(confcount <- confcountInfo) {
+                    <tr>
+                        <td>@confcount.reviewerid</td>
+                        <td>@confcount.name</td>
+                        <td>@confcount.email</td>
+                        <td>@confcount.reviewed</td>
+                        <td>@confcount.left</td>
+
+                    </tr>
+                }
+
+                </tbody>
+            </table>
+
+        </fieldset>
+}

@@ -1,0 +1,139 @@
+@(configSysForm: Form[ConferenceDetail], configSysObject: ConferenceDetail, message: Integer)
+
+@import helper._
+
+@import b3.vertical.fieldConstructor
+
+@main {
+
+  <h1>Configure System</h1>
+
+  @b3.form(routes.configSysController.edit()) {
+
+    <div class="center-block">
+    <fieldset>
+        <label for="textarea">Title</label>
+        <input name="title" value="@configSysObject.title" readonly>
+
+      @if(configSysObject != null && configSysObject.name != "null") {
+        @b3.text(configSysForm("name"), '_label -> "Conference name", 'value -> configSysObject.name)
+      }   else{
+        @b3.text(configSysForm("name"), '_label -> "Conference name")
+      }
+
+      @if(configSysObject != null && configSysObject.url!="null") {
+        @b3.text(configSysForm("url"), '_label -> "URL", 'value -> configSysObject.url)
+      }   else{
+        @b3.text(configSysForm("url"), '_label -> "URL")
+      }
+
+      @if(configSysObject != null && configSysObject.conference_email != "null") {
+        @b3.text(configSysForm("conference_email"), '_label -> "Conference mail", 'value -> configSysObject.conference_email)
+      }   else{
+        @b3.text(configSysForm("conference_email"), '_label -> "Conference mail")
+      }
+
+      @if(configSysObject != null && configSysObject.chair_email != "null") {
+        @b3.text(configSysForm("chair_email"), '_label -> "Chair mail", 'value -> configSysObject.chair_email)
+      }   else{
+        @b3.text(configSysForm("chair_email"), '_label -> "Chair mail")
+      }
+
+      @if(configSysObject != null && configSysObject.tag_title != "null") {
+        @b3.text(configSysForm("tag_title"), '_label -> "TAG Title", 'value -> configSysObject.tag_title)
+      }   else{
+        @b3.text(configSysForm("tag_title"), '_label -> "TAG Title")
+      }
+
+      @if(configSysObject != null && configSysObject.config_content != "null") {
+        @b3.textarea(configSysForm("config_content"), '_label -> "Config Content", 'value -> configSysObject.config_content)
+      }   else{
+        @b3.textarea(configSysForm("config_content"), '_label -> "Config Content")
+      }
+
+      <div class="form-group" id="">
+        <label class="control-label col-md-2">Submit Type</label>
+        <div class="col-md-10">
+          <div class="multi-checkbox-list">
+            <div class="checkbox">
+              <label for="PDF">
+                <input type="checkbox" id="canPDF" name="canPDF" value="@configSysObject.canPDF">
+                PDF
+              </label>
+            </div>
+            <div class="checkbox">
+              <label for="Postscript">
+                <input type="checkbox" id="canPostscript" name="canPostscript" value="@configSysObject.canPostscript">
+                Postscript
+              </label>
+            </div>
+            <div class="checkbox">
+              <label for="Word">
+                <input type="checkbox" id="canWord" name="canWord" value="@configSysObject.canWord">
+                Word
+              </label>
+            </div>
+            <div class="checkbox">
+              <label for="Zip">
+                <input type="checkbox" id="canZip" name="canZip" value="@configSysObject.canZip">
+                Zip
+              </label>
+            </div>
+          </div>
+          <span class="help-block">Mark what you want</span>
+        </div>
+      </div>
+
+      <div>
+      @b3.radio( configSysForm("canMultitopics"), options = Seq("Y"->"YES","N"->"NO"), '_label -> "Multi-topic", 'value -> configSysObject.canMultitopics)
+      </div>
+      <br>
+      <br>
+      <div>
+      @b3.radio( configSysForm("isOpenAbstract"), options = Seq("Y"->"YES","N"->"NO"),'_label -> "Is Abstract Open?", 'value -> configSysObject.isOpenAbstract  )
+      </div>
+      <br>
+      <br>
+      @b3.radio( configSysForm("isOpenPaper"), options = Seq("Y"->"YES","N"->"NO"),'_label -> "Is Paper Open?", 'value -> configSysObject.isOpenPaper  )
+      <br>
+      <br>
+      @b3.radio( configSysForm("isOpenCamera"), options = Seq("Y"->"YES","N"->"NO"),'_label -> "Is Camera file Open?", 'value -> configSysObject.isOpenCamera  )
+      <br>
+      <br>
+      @b3.radio( configSysForm("isBlindReview"), options = Seq("Y"->"YES","N"->"NO"), '_label -> "Is Blind review?", 'value -> configSysObject.isBlindReview  )
+      <br>
+      <br>
+      @b3.radio( configSysForm("discussMode"), options = Seq("N"->"NONE","L"->"LOCAL","G"->"GLOBAL"), '_label -> "discuss mode", 'value -> configSysObject.discussMode  )
+      <br>
+      <br>
+      @b3.radio( configSysForm("ballotMode"), options = Seq("T"->"TOPIC-BASED","G"->"GENERAL"), '_label -> "ballot mode", 'value -> configSysObject.ballotMode  )
+      <br>
+      <br>
+
+      @if(configSysObject != null && configSysObject.reviewer_number != "null") {
+        @b3.textarea(configSysForm("reviewer_number"), '_label -> "Number of reviewers per paper", 'value -> configSysObject.reviewer_number)
+      }   else{
+        @b3.textarea(configSysForm("reviewer_number"), '_label -> "Number of reviewers per paper")
+      }
+      <br>
+      <br>
+      @b3.radio( configSysForm("isMailAbstract"), options = Seq("Y"->"YES","N"->"NO"), '_label -> "send mail abstract?", 'value -> configSysObject.isMailAbstract )
+      <br>
+      <br>
+      @b3.radio( configSysForm("isMailUpload"), options = Seq("Y"->"YES","N"->"NO"), '_label -> "send mail upload?", 'value -> configSysObject.isMailUpload  )
+      <br>
+      <br>
+      @b3.radio( configSysForm("isMailReviewSubmission"), options = Seq("Y"->"YES","N"->"NO"), '_label -> "send mail review submission?", 'value -> configSysObject.isMailReviewSubmission  )
+
+    </fieldset>
+
+    <div class="actions">
+      <input type="submit" value="Edit configuration" class="btn primary">
+      <a href="@routes.AdminController.adminPage(configSysObject.title)" class="btn">Cancel</a>
+    </div>
+
+    </div>
+
+  }
+
+}

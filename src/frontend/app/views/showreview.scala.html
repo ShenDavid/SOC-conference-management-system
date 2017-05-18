@@ -1,0 +1,31 @@
+@(reviewlist: List[Review])
+
+    @import helper._
+
+    @import b3.vertical.fieldConstructor
+
+@main {
+
+        <h1>Show reviews</h1>
+
+
+                <table class="mypaper zebra-striped">
+                    <thead>
+                        <tr>
+                            @for(review <- reviewlist){
+                                <th>@review.label</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                        @for(review <- reviewlist){
+                            <th>@review.review_content</th>
+                        }
+                        </tr>
+
+                    </tbody>
+                </table>
+
+    }

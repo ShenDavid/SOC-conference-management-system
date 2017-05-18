@@ -1,0 +1,102 @@
+@(id:Long, statuscodeList: List[StatusCode], statuscodeForm: Form[StatusCode], tempStatusCode: StatusCode, isModify: Boolean)
+
+@import helper._
+@import b3.vertical.fieldConstructor
+
+@main {
+
+
+    <h1>Conference Administration tasks: StatusCode</h1>
+    @if(isModify == true){
+        @b3.form(routes.StatusCodeController.update(id)){
+            <h3>Modify</h3>
+            @b3.text(statuscodeForm("label"), '_label -> "label",'value -> tempStatusCode.label)
+            @b3.text(statuscodeForm("mailtemplate"), '_label -> "mailtemplate",'value -> tempStatusCode.mailtemplate)
+            @b3.text(statuscodeForm("camerareadyrequired"), '_label -> "camerareadyrequired",'value -> tempStatusCode.camerareadyrequired)
+
+            <div class="actions">
+                <input type="submit" value="Modify" class="btn primary">
+            </div>
+        }
+
+        @b3.form(routes.StatusCodeController.retriveAllStatusCode()){
+
+            <fieldset>
+                <table class="mycriteria zebra-striped">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>label</th>
+                            <th>mailtemplate</th>
+                            <th>camerareadyrequired</th>
+                            <th>Modify</th>
+                            <th>delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    @for(statuscode <- statuscodeList) {
+                        <tr>
+                            <td>@statuscode.id</td>
+                            <td>@statuscode.label</td>
+                            <td>@statuscode.mailtemplate</td>
+                            <td>@statuscode.camerareadyrequired</td>
+                            <td><a href="@routes.StatusCodeController.edit(statuscode.id)">Modify</a></td>
+                            <td><a href="@routes.StatusCodeController.deleteStatusCode(statuscode.id)">Delete</a></td>
+                        </tr>
+                    }
+
+                    </tbody>
+                </table>
+
+            </fieldset>
+        }
+
+
+    }else{
+        @b3.form(routes.StatusCodeController.createStatusCode()){
+            <h3>Add a row in table PaperStatus</h3>
+            @b3.text(statuscodeForm("label"), '_label -> "label",'_help -> "")
+            @b3.text(statuscodeForm("mailtemplate"), '_label -> "mailtemplate",'_help -> "")
+            @b3.text(statuscodeForm("camerareadyrequired"), '_label -> "camerareadyrequired",'_help -> "")
+
+            <div class="actions">
+                <input type="submit" value="Insert" class="btn primary">
+            </div>
+        }
+
+        @b3.form(routes.StatusCodeController.retriveAllStatusCode()){
+
+            <fieldset>
+                <table class="mycriteria zebra-striped">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>label</th>
+                            <th>mailtemplate</th>
+                            <th>camerareadyrequired</th>
+                            <th>Modify</th>
+                            <th>delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    @for(statuscode <- statuscodeList) {
+                        <tr>
+                            <td>@statuscode.id</td>
+                            <td>@statuscode.label</td>
+                            <td>@statuscode.mailtemplate</td>
+                            <td>@statuscode.camerareadyrequired</td>
+                            <td><a href="@routes.StatusCodeController.edit(statuscode.id)">Modify</a></td>
+                            <td><a href="@routes.StatusCodeController.deleteStatusCode(statuscode.id)">Delete</a></td>
+                        </tr>
+                    }
+
+                    </tbody>
+                </table>
+
+            </fieldset>
+        }
+    }
+
+}

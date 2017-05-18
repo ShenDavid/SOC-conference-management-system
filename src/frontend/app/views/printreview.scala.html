@@ -1,0 +1,24 @@
+@(review: String)
+
+@import helper._
+
+@import b3.vertical.fieldConstructor
+
+@main {
+
+
+    <h6 id="printarea">@review</h6>
+
+    <button onclick="myFunction()">Print this page</button>
+    <div class="actions">
+        <a class="btn success" id="register" href="@routes.ShowPaperController.showMyPaper()">Cancel</a>
+    </div>
+    <script>
+            function myFunction() {
+                document.getElementById('printarea').focus();
+                window.print();
+            }
+    </script>
+
+
+}

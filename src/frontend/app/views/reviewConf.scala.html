@@ -1,0 +1,46 @@
+@(confcountInfo: List[ConfCount])
+
+@import helper._
+
+@import b3.vertical.fieldConstructor
+
+@main {
+
+
+    <h1>Conference related to me</h1>
+
+    @b3.form(routes.ShowPaperController.showMyPaper()) {
+
+        <fieldset>
+
+            <table class="mypaper zebra-striped">
+                <thead>
+                    <tr>
+                        <th>Conference name </th>
+                        <th>papers assigned to me</th>
+                        <th>papers reviewed</th>
+                        <th>papers left</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                @for(confcount <- confcountInfo) {
+                    <tr>
+                        <td>@confcount.conf</td>
+                        <td>@confcount.assigned</td>
+                        <td>@confcount.reviewed</td>
+                        <td>@confcount.left</td>
+                        <td><a href="@routes.ReviewerController.enterReviewPaper(confcount.conf)">Modify</a></td>
+
+                    </tr>
+                }
+
+                </tbody>
+            </table>
+
+        </fieldset>
+
+
+    }
+}

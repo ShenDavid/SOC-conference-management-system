@@ -1,0 +1,27 @@
+@(EmailTemplateForm: Form[EmailTemplate])(emailTemplate: String)(emailSubject: String)(email_type: String)
+
+@import helper._
+
+@import b3.vertical.fieldConstructor
+
+@main {
+
+
+    @b3.form(routes.EmailTemplateController.updateEmailTemplate()) {
+
+        <fieldset>
+            <label for="textarea">Email Type</label>
+            <input name="email_type" value="@email_type" readonly>
+            @b3.textarea( EmailTemplateForm("subject"), '_label -> "Email Subject", 'rows -> 1, 'value -> emailSubject)
+        <!----@b3.text( EmailTemplateForm("template"), '_label -> "Email Template", 'value -> emailTemplate)--->
+            <label for="textarea">Email Template</label>
+            <textarea name="template" rows="15">@emailTemplate</textarea>
+
+        </fieldset>
+
+        <div class="actions">
+            <input type="submit" value="Submit" class="btn primary"> or
+            <a class="btn success" id="register" href="@routes.ShowPaperController.showMyPaper()">Cancel</a>
+        </div>
+    }
+}
